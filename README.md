@@ -100,14 +100,14 @@ npm start
 🔄 API Endpoints
 
 Workouts
-	•	GET /api/workouts - Get all workouts
-	•	GET /api/workouts/:id - Get a specific workout
-	•	POST /api/workouts - Create a new workout
-	•	PATCH /api/workouts/:id - Update an existing workout
-	•	DELETE /api/workouts/:id - Delete a workout
+GET /api/workouts - Get all workouts
+GET /api/workouts/:id - Get a specific workout
+POST /api/workouts - Create a new workout
+PATCH /api/workouts/:id - Update an existing workout
+DELETE /api/workouts/:id - Delete a workout
 
 🌐 Frontend Routes
-	•	/ - Home page showing all workouts and a form to add a new workout.
+/ - Home page showing all workouts and a form to add a new workout.
 
 
 
