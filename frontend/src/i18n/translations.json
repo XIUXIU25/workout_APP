@@ -1,0 +1,46 @@
+{
+    "en": {
+      "navbar": {
+        "title": "Workout Buddy"
+      },
+      "workoutDetails": {
+          "title": "Workout Details",
+          "load": "Load (kg)",
+          "reps": "Number of reps",
+          "delete": "Delete"
+        },
+        "workoutForm": {
+          "addNewWorkout": "Add New Workout",
+          "title": "Exercise Title",
+          "load": "Load (in kg)",
+          "reps": "Number of Reps",
+          "button": "Add Workout",
+          "errorTitle": "Title is required",
+          "errorLoad": "Load is required",
+          "errorReps": "Reps is required"
+        }
+    },
+    "zh": {
+      "navbar": {
+        "title": "健身伙伴"
+      },
+      "workoutDetails": {
+          "title": "锻炼标题",
+          "load": "重量 (kg)",
+          "reps": "重复次数",
+          "delete": "删除"
+        },
+        "workoutForm": {
+          "addNewWorkout": "新增健身项目",
+          "title": "锻炼标题",
+          "load": "重量 (kg)",
+          "reps": "重复次数",
+          "button": "增加",
+          "errorTitle": "标题是必填的",
+          "errorLoad": "重量是必填的",
+          "errorReps": "重复次数是必填的"
+        }
+    }
+
+  }
+  

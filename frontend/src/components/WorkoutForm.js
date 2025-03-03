@@ -1,8 +1,13 @@
 import { useState } from 'react'
 import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
+import { useTranslation } from 'react-i18next'
+import LibraryAddCheckIcon from '@mui/icons-material/LibraryAddCheck';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 const WorkoutForm = () => {
+  const { t } = useTranslation()
   const { dispatch } = useWorkoutsContext()
+  const { user }=useAuthContext( )
 
   const [title, setTitle] = useState('')
   const [load, setLoad] = useState('')
@@ -12,6 +17,10 @@ const WorkoutForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if(!user){
+      setError('You must be logged in')
+      return
+    }
 
     const workout = {title, load, reps}
     
@@ -19,7 +28,8 @@ const WorkoutForm = () => {
       method: 'POST',
       body: JSON.stringify(workout),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user.token}`
       }
     })
     const json = await response.json()
@@ -41,9 +51,9 @@ const WorkoutForm = () => {
 
   return (
     <form className="create" onSubmit={handleSubmit}> 
-      <h3>Add a New Workout</h3>
+      <h3>{t('workoutForm.addNewWorkout')}</h3>
 
-      <label>Excersize Title:</label>
+      <label>{t('workoutForm.title')}:</label>
       <input 
         type="text" 
         onChange={(e) => setTitle(e.target.value)} 
@@ -51,7 +61,7 @@ const WorkoutForm = () => {
         className={emptyFields.includes('title') ? 'error' : ''}
       />
 
-      <label>Load (in kg):</label>
+      <label>{t('workoutForm.load')}:</label>
       <input 
         type="number" 
         onChange={(e) => setLoad(e.target.value)} 
@@ -59,7 +69,7 @@ const WorkoutForm = () => {
         className={emptyFields.includes('load') ? 'error' : ''}
       />
 
-      <label>Number of Reps:</label>
+      <label>{t('workoutForm.reps')}:</label>
       <input 
         type="number" 
         onChange={(e) => setReps(e.target.value)} 
@@ -67,7 +77,7 @@ const WorkoutForm = () => {
         className={emptyFields.includes('reps') ? 'error' : ''}
       />
 
-      <button>Add Workout</button>
+      <button><LibraryAddCheckIcon fontSize="large"/></button>
       {error && <div className="error">{error}</div>}
     </form>
   )
